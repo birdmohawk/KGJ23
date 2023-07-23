@@ -6,23 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class OnButtonPressScript : MonoBehaviour
 {
-    //public GameObject instructions;
+    public GameObject instructions;
     public AudioSource buttonSound;
     //public Scene scene;
 
-    /*void Start()
+    void Start()
     {
         instructions.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetKey("escape") && !instructions) //esc key assigned in input manager
-            instructions.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Tab)) //Tab toggles instructions
+            instructions.gameObject.SetActive(!instructions.gameObject.activeSelf);
 
-        else
-            instructions.SetActive(false);
-    }*/
+        // need to pause game here
+            
+    }
+
     public void OnButtonPressPlay() //play game
     {
         SceneManager.LoadScene("prototype");
@@ -33,16 +34,17 @@ public class OnButtonPressScript : MonoBehaviour
         Application.Quit();
     }
 
-    /*public void OnButtonNextLvlTwo() //quit game
+    public void OnButtonPressMenu()
     {
-        SceneManager.LoadScene("Level_Two");
+        SceneManager.LoadScene("menu");
     }
 
-    public void OnButtonPressNxtLvlThree()
+    public void OnButtonPressResume()
     {
-        SceneManager.LoadScene("Level_Three");
+        instructions.gameObject.SetActive(!instructions.gameObject.activeSelf);
     }
 
+    /*
     public void ResetScene() //play game
     {
         SceneManager.LoadScene("Level_One");
