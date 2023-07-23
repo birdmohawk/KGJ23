@@ -27,6 +27,7 @@ public class OnButtonPressScript : MonoBehaviour
     public void OnButtonPressPlay() //play game
     {
         SceneManager.LoadScene("prototype");
+        buttonSound.Play();
     }
 
     public void OnButtonPressQuit() //quit game
@@ -37,11 +38,13 @@ public class OnButtonPressScript : MonoBehaviour
     public void OnButtonPressMenu()
     {
         SceneManager.LoadScene("menu");
+        buttonSound.Play();
     }
 
     public void OnButtonPressResume()
     {
         instructions.gameObject.SetActive(!instructions.gameObject.activeSelf);
+        buttonSound.Play();
     }
 
     /*
